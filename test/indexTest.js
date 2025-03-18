@@ -43,7 +43,7 @@ describe('Handling form submission', () => {
 
   before(() => {
     form = document.querySelector('#create-task-form')
-    formInput = document.querySelector('#new-task-description')
+    formInput = document.querySelector('#newTaskDescription')
     taskList = document.querySelector('#tasks')
   })
 
@@ -53,5 +53,9 @@ describe('Handling form submission', () => {
     const event = new dom.window.Event('submit')
     form.dispatchEvent(event)
     expect(taskList.textContent).to.include('Wash the dishes')
+    
+    // Check if the task was added to the list
+    const taskItem = taskList.querySelector('li');
+    expect(taskItem.textContent).to.include('Wash the dishes');
   })
 })
